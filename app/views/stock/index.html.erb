@@ -1,0 +1,13 @@
+<div class='container py-5'>
+  <div class="row">
+    <h2 class="font-weight-bold">上市公司列表</h2>
+  </div>
+  <div class='row'>
+    <div class="col-md-6" id="accordion_left" role="tablist">
+      <%= collpase_stocklist(@industry[0...(@industry.size / 2)], 'l') %>
+    </div>
+    <div class="col-md-6" id="accordion_right" role="tablist">
+      <%= collpase_stocklist(@industry[(@industry.size / 2)..-1], 'r') %>
+    </div>
+  </div>
+</div>

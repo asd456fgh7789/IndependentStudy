@@ -1,0 +1,209 @@
+// Place all the styles related to the info controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$font-family-base: 'Noto Sans TC';
+$headings-font-family: 'Noto Sans TC';
+
+body{
+    font-family: 'Noto Sans TC';
+}
+
+$white: #fff;
+$steel-blue: #e7eef4;
+$akane:  rgb(203,58,86);
+
+$outline: 2px solid;
+
+.chart__grid {
+  stroke: $steel-blue;
+  opacity: 0.3;
+}
+svg text{
+  font: 12px sans-serif;
+}
+.area {
+  fill: rgba(255,100,100,0.5);
+  clip-path: url("#clip");
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: $steel-blue;
+  shape-rendering: crispEdges;
+}
+.y text{
+  font-size: 13px;
+}
+.brush .selection {
+  stroke: $steel-blue;
+  fill-opacity: 0.125;
+  shape-rendering: crispEdges;
+}
+
+.chart text {
+  fill: #7f8faf;
+}
+.chart__line {
+  fill: none;
+  stroke-width: 1.2px;
+  clip-path: url("#clip");
+}
+
+.chart__price--focus {
+  stroke-width: 1.2px;
+}
+
+.chart__overlay {
+  opacity: 0;
+  pointer-events: all;
+}
+
+.chart__tooltip--price {
+  fill: $akane;
+  stroke: $akane;
+}
+.chart__tooltip--average {
+  fill: none;
+  stroke: #f00;
+}
+.chart__bars {
+  fill: #99c5df;
+  opacity: 1;
+}
+.chart__range-selection text {
+  cursor: pointer;
+  text-decoration: underline;
+  fill: #2980b9;
+}
+.chart__axis--context text {
+  fill: #7f8faf;
+}
+.chart__axis--context .tick:nth-child(odd) {
+  display: none;
+}
+.chart__axis--context path,
+.chart__axis--context line {
+  display: none;
+}
+.chart__area {
+  fill: #e6f6fe;
+  stroke: #3587bc;
+}
+.selection {
+  outline: #e2f0ff 1px solid;
+  fill: #3587bc;
+  fill-opacity: 0.3;
+}
+.y.axis .tick text {
+  text-anchor: start !important;
+  fill: #7f8faf;
+}
+.y.axis .tick line {
+  display: none;
+}
+.y.axis path {
+  display: none;
+}
+
+.chart__symbol {
+  font-size: 12px;
+}
+
+.chart__grid .tick{
+  opacity: 0.3;
+}
+
+.price_line{
+  stroke: #2980b9;
+}
+
+
+#options input[type="checkbox"]{
+  outline-style: solid;
+  outline-width: 2px;
+}
+
+.vert_line{
+  stroke: #ABABAB;
+  stroke-width:1;
+}
+
+.sma_15_line{
+  stroke: LimeGreen;
+  outline-color: LimeGreen;
+  border-color: LimeGreen;
+  color: LimeGreen;
+}
+
+.ema_5_line{
+  stroke: Orange;
+  outline-color: Orange;
+  border-color: Orange;
+  color: Orange;
+}
+
+.ema_15_line{
+  stroke: SlateBlue;
+  outline-color: SlateBlue;
+  border-color: SlateBlue;
+  color: SlateBlue;
+}
+
+.k9_line{
+  stroke: Maroon;
+  outline-color: Maroon;
+  border-color: Maroon;
+  color: Maroon;
+}
+
+.d9_line{
+  stroke: MidnightBlue;
+  outline-color: MidnightBlue;
+  border-color: MidnightBlue;
+  color: MidnightBlue;
+}
+
+.rsi_line{
+  stroke: DimGray;
+  outline-color: DimGray;
+  border-color: DimGray;
+  color: DimGray;
+}
+
+.macd_9_line{
+  stroke: LightSlateGray;
+  outline-color: LightSlateGray;
+  border-color: LightSlateGray;
+  color: LightSlateGray;
+}
+
+.macd_15_line{
+  stroke: DarkSlateGray;
+  outline-color: DarkSlateGray;
+  border-color: DarkSlateGray;
+  color: DarkSlateGray;
+}
+
+.atr_line{
+  stroke: DarkGreen;
+  outline-color: DarkGreen;
+  border-color: DarkGreen;
+  color: DarkGreen;
+}
+
+.dmi_line{
+  stroke: Navy;
+  outline-color: Navy;
+  border-color: Navy;
+}
+
+.adx_line{
+  stroke: Crimson;
+  outline-color: Crimson;
+  border-color: Crimson;
+}
+
+.k_line{
+  stroke-width: 2px;
+}

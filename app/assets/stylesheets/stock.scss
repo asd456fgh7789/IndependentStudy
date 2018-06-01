@@ -1,0 +1,91 @@
+// Place all the styles related to the stock controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap";
+@import url('https://fonts.googleapis.com/earlyaccess/notosanstc.css'); 
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif');
+
+$font-family-base: 'Noto Sans TC';
+$headings-font-family: 'Noto Sans TC';
+
+body{
+    font-family: 'Noto Sans TC';
+}
+
+$theme-colors: (
+  primary: #007bff,
+  secondary: #004EA3,
+  success: #28a745,
+  info: #00fbff,
+  warning: #ffc107,
+  danger: #dc3545,
+  light: #f8f9fa,
+  dark: #343a40
+);
+
+$enable-rounded:            true !default;
+$enable-shadows:            false;
+$enable-gradients:          false;
+$enable-transitions:        true !default;
+$enable-hover-media-query:  false !default;
+$enable-grid-classes:       true !default;
+$enable-print-styles:       true !default;
+
+// Variables
+//
+// Theme settings.
+
+$body-bg: white;  
+$body-color: #292b2c;
+$body-color-inverse: invert($body-color) !default;
+$link-color: #007bff;
+
+
+$font-family-base: 'Noto Sans TC';
+
+$headings-font-family: 'Noto Sans TC', -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+
+$font-size-base: 1rem; // Assumes the browser default, typically `16px`
+$font-size-h1: 2.5 * $font-size-base;
+$font-size-h2: 2 * $font-size-base;
+$font-size-h3: 1.75 * $font-size-base;
+$font-size-h4: 1.5 * $font-size-base;
+$font-size-h5: 1.25 * $font-size-base;
+$font-size-h6: $font-size-base;
+
+$display1-size: 6 * $font-size-base;
+$display2-size: 5.5 * $font-size-base;
+$display3-size: 4.5 * $font-size-base;
+$display4-size: 3.5 * $font-size-base;
+
+$border-radius: .25rem;
+
+body > * {
+  background-size: cover;
+}
+
+.axis path {
+  display: none;
+}
+
+.axis line {
+  stroke-opacity: 0.2;
+}
+
+.view {
+  fill: rgba(255, 255, 255, 0.2);
+}
+
+.line{
+  stroke: #06c;
+}
+
+.c_point{
+  stroke: #06c;
+}
+
+.hover_line{
+  stroke: #000;
+  stroke-opacity: 0.2;
+}

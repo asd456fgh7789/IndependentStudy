@@ -1,0 +1,9 @@
+rails new stock --database=postgresql --skip-test-unit
+rails g model stocklist
+
+https://github.com/Aerogami/guides/wiki/Cloud9-workspace-setup-with-Rails-and-Postgresql
+
+heroku git:remote -a 'asd456fgh7789'
+git add .
+git commit -m 'new commit'
+git push heroku master

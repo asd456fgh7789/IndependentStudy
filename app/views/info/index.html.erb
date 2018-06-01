@@ -1,0 +1,182 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row justify-content-between align-items-end">
+        <h1 class="text-left text-dark">
+          <p>
+            <strong class="font-weight-bold" id="stock-name"><%= @symbol.name %></strong>
+            <strong class="font-weight-bold" id="stock-symbol"><%= @symbol.symbol %></strong>
+          </p>
+        </h1>
+        <p class="text-right"><%= @symbol.updated_at.strftime('%Y/%m/%d') %></p>
+      </div>
+      <div class="row align-items-center text-center my-2">
+        <div class="col-md-2 my-1 <%= stock_color(@symbol.diff)%>" id="stock-info">
+          <h2>
+            <p class="font-weight-bold" id="stock-close"><%= @symbol.close %></p>
+          </h2>
+          <h4>
+            <p class="col-12">
+              <strong class="px-3"><%=  @diff %></strong>
+              <strong class="px-3"><%=  "%.02f%" % [(@symbol.diff / @symbol.open) * 100] %></strong>
+            </p>
+          </h4>
+        </div>
+        <div class="col-md-4 my-1">
+          <div class="row">
+            <div class="col-6 row justify-content-between mx-auto">
+              <p class="font-weight-bold">開盤</p>
+              <p class="font-weight-bold" id="stock-open"><%= @symbol.open %></p>
+            </div>
+            <div class="col-6 row justify-content-between mx-auto">
+              <p class="font-weight-bold">最高</p>
+              <p class="font-weight-bold" id="stock-high"><%= @symbol.high %></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6 row justify-content-between mx-auto">
+              <p class="font-weight-bold">上回收盤</p>
+              <p class="font-weight-bold" id="stock-last-close"><%= @last_close %></p>
+            </div>
+            <div class="col-6 row justify-content-between mx-auto">
+              <p class="font-weight-bold">最低</p>
+              <p class="font-weight-bold" id="stock-low"><%= @symbol.low %></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 my-1">
+          <div class="row justify-content-between mx-auto">
+          <p class="font-weight-bold">交易筆數</p>
+          <p class="font-weight-bold" id="stock-volume"><%= @symbol.volume %></p>
+          </div>
+          <div class="row justify-content-between mx-auto">
+          <p class="font-weight-bold">交易張數</p>
+          <p class="font-weight-bold" id="stock-volume"><%= (@symbol.share / 1000).round %></p>
+          </div>
+        </div>
+        <div class="col-md-2 my-1 justify-content-between mx-auto">
+          <p class="font-weight-bold">產業</p>
+          <p id="stock-industry"><%= @symbol.industry %></p>
+        </div>
+        <div class="col-md-2 my-1 justify-content-between mx-auto">
+          <div class="row justify-content-center">
+            <p class="font-weight-bold">漲跌小幫手</p>
+          </div>
+          <div class="row justify-content-between mx-auto">
+            <h3 id="predict" class="font-weight-bold"</h3>
+            <h3 class="font-weight-bold">
+              <abbr title="過去二十天的準確率" id="predict_accuracy">
+              </abbr>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="options" class="row">
+      <div class="form-check col-2">
+      <input class="sma_15_line" type="checkbox" value=""  id="sma_15"/>
+      <label class="" for="sma_15">
+        SMA15
+      </label>
+    </div>
+      <div class="form-check col-2">
+      <input class="ema_5_line" type="checkbox" value=""  id="ema_5"/>
+      <label class="ema_5_line" for="ema_5">
+        EMA5
+      </label>
+    </div>
+      <div class="form-check col-2">
+      <input class="ema_15_line" type="checkbox" value=""  id="ema_15"/>
+      <label class="ema_15_line" for="ema_15">
+        EMA15
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div id="stock-chart" class="col-10">
+      
+    </div>
+    <div id="info"  class="col-2">
+      <div id="title_info" class="container">
+        <div class="row justify-content-between">
+          <p class="font-weight-bold">日期</p>
+          <p id="date_value"></p>
+        </div>
+      </div>
+      <div id="chart_info" class="container">
+        <div class="row justify-content-between">
+          <p class="font-weight-bold">開盤</p>
+          <p id="open_value"><%= @symbol.open %></p>
+        </div>
+        <div class="row justify-content-between">
+          <p class="font-weight-bold">最高</p>
+          <p id="high_value"><%= @symbol.high %></p>
+        </div>
+        <div class="row justify-content-between">
+          <p class="font-weight-bold">最低</p>
+          <p id="low_value"><%= @symbol.low %></p>
+        </div>
+        <div class="row justify-content-between">
+          <p class="font-weight-bold">收盤</p>
+          <p id="close_value"><%= @symbol.close %></p>
+        </div>
+        <div class="row justify-content-between">
+          <p class="font-weight-bold sma_15_line">SMA_15</p>
+          <p id="sma_15_value"></p>
+        </div>
+        <div class="row justify-content-between">
+          <p class="font-weight-bold ema_5_line">EMA_5</p>
+          <p id="ema_5_value"></p>
+        </div>
+        <div class="row justify-content-between">
+          <p class="font-weight-bold ema_15_line">EMA_15</p>
+          <p id="ema_15_value"></p>
+        </div>
+      </div>
+      <div id="bars_info" class="container">
+        <div class="row justify-content-between">
+          <p class="font-weight-bold">交易量</p>
+          <p id="volume_value"></p>
+        </div>
+      </div>
+      <div id="predict_info" class="container">
+        <div class="row justify-content-between">
+          <p class="font-weight-bold">當日預期漲跌</p>
+          <p id="predict_value"></p>
+        </div>
+      </div>
+      <div id="tl_info" class="container">
+        <div class="row  justify-content-between">
+        </div>
+      </div>
+      <div id="kd_info" class="container">
+        <div class="row justify-content-between">
+          <p class="font-weight-bold k9_line">K9</p>
+          <p id="k9_value"></p>
+        </div>
+        <div class="row justify-content-between">
+          <p class="font-weight-bold d9_line">D9</p>
+          <p id="d9_value"></p>
+        </div>
+      </div>
+      <div id="rsi_info" class="container">
+        <div class="row justify-content-between">
+          <p class="font-weight-bold rsi_line">RSI</p>
+          <p id="rsi_value"></p>
+        </div>
+      </div>
+      <div id="macd_info" class="container">
+        <div class="row justify-content-between">
+          <p class="font-weight-bold macd_9_line">MACD_9</p>
+          <p id="macd_9_value"></p>
+        </div>
+        <div class="row justify-content-between">
+          <p class="font-weight-bold macd_15_line">MACD_15</p>
+          <p id="macd_15_value"></p>
+        </div>
+      </div>
+    </div>
+      
+  </div>
+</div>
